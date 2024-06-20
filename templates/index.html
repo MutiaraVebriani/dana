@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CekIn-Deteksi Link DANA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+  <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Libraries Stylesheet -->
+        <link href="{{url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static', filename='lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+          <!-- Tautan ke Bootstrap CSS -->
+           <!-- Tautan ke Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            </head>
+              <script>
+        // Check if the page was reloaded
+        if (performance.navigation.type === 1) {
+            window.location.href = '/';
+        }
+    </script>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0" id="home">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <h1 href="" class="navbar-brand p-0">
+                 <img src= "{{url_for('static', filename='img/logo2.png')}} " alt="image"> 
+                </h1>
+                <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav mx-auto py-0">
+        <a href="/home" class="nav-item nav-link active">Home</a>
+        <a href="/dana" class="nav-item nav-link">About Dana</a>
+        <a href="/pp" class="nav-item nav-link">About Phishing</a>
+        <a href="/tips" class="nav-item nav-link">Tips & Trik</a>
+    </div>
+</div>
+
+               </div>
+</nav>
+<div class="container-xxl bg-primary hero-header">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="text-white mb-4 animated slideInDown">Deteksi Link Phishing Dana Kaget</h1>
+                <p class="text-white pb-3 animated slideInDown">Cek Link Dana mu disini</p>
+                <div class="position-relative w-100 mt-3">
+                    <form method="post" action="{{ url_for('predict') }}">
+                    <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" name="link" placeholder="Masukan Link" style="height: 58px;">
+                    <button type="submit" class="btn btn-primary rounded-pill py-2 px-3 shadow-none position-absolute top-0 end-0 m-2">Deteksi</button>
+                     {% if link and result %}
+                        <p class="text-white pb-3 animated slideInDown">Link yang dimasukkan: {{ link }}</p>
+                        <h2 class="text-white mb-4 animated slideInDown">Hasil prediksi: {{ result }}</h2>
+                    {% endif %}
+                </form>
+
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-start">
+                <img src="{{url_for('static', filename='img/image.png')}}" class="img-fluid rounded animated zoomIn" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Link Detector</title>
+</head>
+<body>
+    <h1>Phishing Link Detector</h1>
+    <form method="post" action="{{ url_for('predict') }}">
+        <label for="link">Masukkan link:</label>
+        <input type="text" name="link" required>
+        <button type="submit">Prediksi</button>
+    </form>
+    
+    {% if link %}
+        <p>Link yang dimasukkan: {{ link }}</p>
+        <p>Hasil prediksi: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
